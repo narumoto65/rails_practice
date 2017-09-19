@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>A Tool for making your opponents tilted</title>   
+    <link rel="stylesheet" type="text/css" href="riot.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var region = "jp";
+        var friends = [];
+        function lookup(){
+            var summoner = document.getElementById("summoner_name").value;
+            var appkey = "RGAPI-bea4e474-3a2f-4bac-8c09-cc4b7543fbc2";
+            var url = "https://jp.api.pvp.net/api/lol/" + region + "/v1.4/summoner/by-name/" + summoner + "?api_key=" + appkey; 
+            jQuery.getJSON(url,callback);
+            console.log("in lookup()");
+        }
+        function callback(json){
+            console.log("in callback");
+            //var result = json.["sethena"]["id"];
+            //var data = JSON.parse(json);
+            console.log(json['name']);
+        }
+        function add_friend(){
+            var count = friends.length;
+            friends[count] = document.getElementById("friend_summoner").value;
+            //firends += document.getElementById("friend_summoner");
+            //console.log(count);
+            //console.log(friends);                      
+        }
+        
+    </script>
+</head>
+<body background="teemo.jpg">
+    <h1>Tilt Finder</h1>
+    <p>Enter a Summoner Name</p>
+    <p>
+        <input type="text" id="summoner_name"value="Sethena"></input>
+        <input type="button" value = "検索" onclick="lookup()"></input>
+    </p>
+    <p>Enter your friends' summoner ID</p>
+    <p>
+        <input type="text" id="friend_summoner"></input>
+        <input type="button" value="友達追加" onclick="add_friend()"></input>
+        <select id="friendslist"></select>
+</body>
+</html>

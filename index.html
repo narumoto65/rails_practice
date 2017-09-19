@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>情報基礎最終課題</title>
+	 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	 <script type="text/javascript">
+	 	var isbn;
+	 	var systemid;
+	 	var ido;
+	 	var keido;
+	 	//var status;
+	 	//var status;
+	 	function button_click(){
+	 		var appkey = "b3abfb709d73219ac862be500852a354";
+	 		isbn = document.getElementById("isbn").value;
+
+
+	 		if(document.getElementById("r1").checked){
+	 			systemid = document.getElementById("r1").value;
+	 			console.log("aomori selected");
+	 		}
+
+	 		else if( document.getElementById("r2").chceked){
+	 			systemid = document.getElementById("r2").value;
+	 			console.log("fjisawa");
+	 		}
+	 		else if(document.getElementById("r3").checked){
+	 			systemid = document.getElementById("r3").value;
+	 			console.log("media");
+
+	 		}
+	 		var url = "http://api.calil.jp/check?appkey=" + appkey +"&isbn=" + isbn + "&systemid=" +systemid+ "&callback=?&format=json";
+	 		//console.log("button clicked");
+	 		//var url2 = "http://api.calil.jp/library?appkey="+appkey+"&geocode="+ keido + "," + ido + "&callback=?&limit=3&format=json";
+
+	 		var param ={
+	 			'isbn':isbn,
+	 			'systemid':systemid
+	 		};
+
+	 		jQuery.getJSON(url,param,callback);
+	 		//jQuery.getJSON(url2,callback2);
+	 	}
+
+
+	 	function callback(json){
+	 		//console.log("in callback")
+	 		var result = json.session;
+	 		var cont = json.continue;
+	 		var status = json.books[isbn][systemid].libkey;
+
+
+	 		if(document.getElementById("r1").checked){
+	 			alert(status["青県図"]);
+	 			//if(status["青県図"]=="貸出化"){
+	 			//	document.getElementById("kekka").innerText = "貸出可能です";
+	 			//}
+	 		}
+
+	 		//else if(document.getElementById("r3").checked){
+	 		else if(document.getElementById("r3").checked){
+	 			//alert("3");
+	 			alert(status);
+
+	 		}
+	 		else{
+	 			//alert("2");
+	 			alert(status);
+
+	 		}
+
+
+	 	}
+
+	 </script>
+
+</head>
+<body>
+	 <h1 align ="center">図書館を探す</h1>
+                <p align = "center"><img src="tosho.jpg"></p>
+                <!--<p align ="center">お好きなジャンルを指定してください</p>-->
+        <div align="center">
+
+        <div>
+                <p align="center">
+
+                        <p>検索するタイトルのISBN番号を入力してください</p>
+                        <input type ="text" id = "isbn" value = "9784903620503">
+                        <p>利用する図書館を選んでください</p>
+                        <form>
+                        	<input type="radio" name="toshokan" id="r1"value="Aomori_Pref">青森図書館<br>
+                        	<input type ="radio" name="toshokan" id="r2"value="Kanagawa_Fujisawa">藤沢図書館<br>
+                        	<input type="radio" name="toshokan" id="r3"value="Univ_Keio">メディアセンター<br>
+                        </form>
+                        <!--<input type="text">-->
+                        <p></p>
+                        <input type = "button" value="検索" onclick = "button_click()">
+                        <!--<input type = "text" id="isbn" >-->
+                        <!--<p id ="kekka">結果出るはず</p>-->
+                </p>
+
+</body>
+</html>

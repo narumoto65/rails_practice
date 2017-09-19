@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>猫を眺めるページ</title>
+    <link rel="stylesheet" type="text/css" href="csscats.css"> 
+    <script type="text/javascript" src="jscats.js"></script>
+</head>
+<body background="cats.jpg">
+    <h1 align="center">かわいい猫を眺めるページ</h1>
+    <p class ="seijuku">猫の成熟具合を選んでください:</p>
+   
+    <form align="center">
+        <input type="radio" name="age" id="kitten" value="0">子猫</input>
+        <input type="radio" name="age" id="cat" value="1">成人猫</input>
+        <input type="radio" name="age" id="memecat" value="2">ランダム猫</input>
+    </form>
+    <p class ="nekocolor">猫の色を選んでください:</p>
+    <form align ="center">
+        <input type="radio" name="color" id="white" value="0">白猫</input>
+        <input type="radio" name="color" id="black" value="1">黒猫</input>
+        <input type="radio" name="color" id="grey" value="2">グレー</input>
+        <input type="radio" name="color" id="stripe" value="3">三毛猫</input>
+    </form>
+    <p> 
+    <input type="button"  value="送信" onclick="sentaku()"></input>
+    </p>
+    <p id="keikoku">
+    <p id="keikoku2">
+    </p>
+    <p>
+    <a href="hiddenpage.html">.</a>
+    </p>
+
+    <div id = "selectedCat" align="center">
+    </div>
+
+</body>
+</html>

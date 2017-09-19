@@ -1,0 +1,27 @@
+h1{
+    color:white; 
+    text-shadow: 2px 2px 5px pink;
+    text-shadow: -2px 2px 5px pink;
+    text-shadow: 2px -2px 5px pink;
+    text-shadow: -2px -2px 5px pink; 
+}
+body{
+    color:white;
+    text-shadow: 2px 2px 3px pink;
+    text-shadow: -2px 2px 3px pink;
+    text-shadow: 2px -2px 3px pink;
+    text-shadow: -2px -2px 3px pink;
+}
+form{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+p.seijuku{
+    font-size:20px;
+}
+p.nekocolor{
+    font-size:20px;
+}
+p{
+    text-align:center;
+}
